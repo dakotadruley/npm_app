@@ -7,14 +7,10 @@ function start(route, handle) {
     const pathName = url.parse(req.url).pathName;
     console.log('Request for ' + pathName + ' recieved.');
     
-    route(handle, pathName);
-    
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('Hello World :)');
-    res.end();
+    route(handle, pathName, res);
   }
 
-  http.createServer(onRequest).listen(8888);
+  http.createServer(onRequest).listen(8000);
   console.log('Server has started.');
 
 }
