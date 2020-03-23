@@ -1,11 +1,7 @@
-require('dotenv').config();
-require('./lib/utils/connect')();
+const http = require('http');
 
-const app = require('./lib/app');
-
-const PORT = process.env.PORT || 7890;
-
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Started on ${PORT}`);
-});
+http.createServer(function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('Hello World :)');
+  res.end();
+}).listen(8888);
